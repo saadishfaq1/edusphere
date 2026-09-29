@@ -1,0 +1,104 @@
+/* Editor overrides to match theme */
+.ql-toolbar.ql-snow { border-color: var(--rt-border); border-radius: 10px 10px 0 0; background: #FAFCFE; }
+.ql-container.ql-snow { border-color: var(--rt-border); border-radius: 0 0 10px 10px; min-height: 240px; font-family: inherit; font-size: 14px; }
+.ql-editor { font-family: inherit; }
+
+/* Quill snow theme — dark mode */
+[data-theme="dark"] .ql-toolbar.ql-snow {
+  background: rgba(255,255,255,.04);
+  border-color: var(--rt-border);
+}
+[data-theme="dark"] .ql-container.ql-snow {
+  background: var(--rt-card-bg);
+  border-color: var(--rt-border);
+  color: var(--rt-text);
+}
+[data-theme="dark"] .ql-editor { color: var(--rt-text); }
+[data-theme="dark"] .ql-editor.ql-blank::before { color: var(--rt-text-muted); font-style: normal; }
+/* Toolbar icon SVG strokes & fills (Quill icons are inline SVG with stroke="#444" / fill="#444") */
+[data-theme="dark"] .ql-snow .ql-stroke { stroke: var(--rt-text); }
+[data-theme="dark"] .ql-snow .ql-fill,
+[data-theme="dark"] .ql-snow .ql-stroke.ql-fill { fill: var(--rt-text); }
+[data-theme="dark"] .ql-snow .ql-picker { color: var(--rt-text); }
+[data-theme="dark"] .ql-snow .ql-picker-label { color: var(--rt-text); }
+[data-theme="dark"] .ql-snow .ql-picker-label:hover,
+[data-theme="dark"] .ql-snow .ql-picker-label.ql-active,
+[data-theme="dark"] .ql-snow button:hover,
+[data-theme="dark"] .ql-snow button.ql-active { color: var(--rt-primary); }
+[data-theme="dark"] .ql-snow .ql-picker-label:hover .ql-stroke,
+[data-theme="dark"] .ql-snow button:hover .ql-stroke,
+[data-theme="dark"] .ql-snow button.ql-active .ql-stroke { stroke: var(--rt-primary); }
+[data-theme="dark"] .ql-snow .ql-picker-label:hover .ql-fill,
+[data-theme="dark"] .ql-snow button:hover .ql-fill,
+[data-theme="dark"] .ql-snow button.ql-active .ql-fill { fill: var(--rt-primary); }
+[data-theme="dark"] .ql-snow .ql-picker-options {
+  background: var(--rt-card-bg);
+  border-color: var(--rt-border) !important;
+  color: var(--rt-text);
+  box-shadow: 0 8px 24px rgba(0,0,0,.5);
+}
+[data-theme="dark"] .ql-snow .ql-picker-item { color: var(--rt-text); }
+[data-theme="dark"] .ql-snow .ql-picker-item:hover,
+[data-theme="dark"] .ql-snow .ql-picker-item.ql-selected { color: var(--rt-primary); }
+[data-theme="dark"] .ql-snow .ql-tooltip {
+  background: var(--rt-card-bg);
+  border-color: var(--rt-border);
+  color: var(--rt-text);
+  box-shadow: 0 8px 24px rgba(0,0,0,.5);
+}
+[data-theme="dark"] .ql-snow .ql-tooltip input[type="text"] {
+  background: var(--rt-body-bg);
+  color: var(--rt-text);
+  border-color: var(--rt-border);
+}
+[data-theme="dark"] .ql-snow .ql-tooltip a.ql-action,
+[data-theme="dark"] .ql-snow .ql-tooltip a.ql-remove { color: var(--rt-primary); }
+[data-theme="dark"] .ql-snow .ql-color-picker .ql-picker-item,
+[data-theme="dark"] .ql-snow .ql-background .ql-picker-item { border-color: var(--rt-border); }
+
+/* Markdown editor */
+.md-editor { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 13px; line-height: 1.55; resize: vertical; }
+.md-preview {
+  background: #fff;
+  border: 1px solid var(--rt-border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  min-height: 264px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--rt-text);
+}
+.md-preview h1, .md-preview h2, .md-preview h3 { color: var(--rt-heading); margin-top: 0; }
+.md-preview h1 { font-size: 1.5rem; }
+.md-preview h2 { font-size: 1.2rem; }
+.md-preview h3 { font-size: 1rem; }
+.md-preview ul, .md-preview ol { padding-left: 1.25rem; }
+.md-preview blockquote {
+  border-left: 4px solid var(--rt-primary);
+  background: var(--rt-primary-soft);
+  margin: 0; padding: 8px 12px;
+  border-radius: 0 6px 6px 0;
+  color: var(--rt-text);
+}
+.md-preview code {
+  background: var(--rt-body-bg);
+  color: var(--rt-pink);
+  padding: 1px 6px; border-radius: 4px;
+  font-size: .9em;
+}
+.md-preview pre {
+  background: #0F172A;
+  color: #E5E7EB;
+  padding: 12px; border-radius: 8px;
+  overflow-x: auto;
+  font-size: 13px;
+}
+.md-preview pre code { background: transparent; color: inherit; padding: 0; }
+.md-preview hr { border-color: var(--rt-border); }
+.md-preview a { color: var(--rt-primary); }
+.md-preview img { max-width: 100%; border-radius: 8px; }
+.md-preview table { width: 100%; border-collapse: collapse; }
+.md-preview th, .md-preview td { border: 1px solid var(--rt-border); padding: 6px 10px; }
+.md-preview th { background: var(--rt-body-bg); }
+
+.vr { width: 1px; background: var(--rt-border); align-self: stretch; }

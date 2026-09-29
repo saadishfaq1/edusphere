@@ -1,0 +1,78 @@
+/* ==========================================================================
+   ElitePanel — SweetAlert2 Custom Styling
+   ========================================================================== */
+
+/* Branded popup */
+.swal2-popup.rt-swal {
+  border-radius: 16px !important;
+  font-family: inherit !important;
+  box-shadow: 0 18px 50px rgba(15,23,42,.15) !important;
+}
+.swal2-popup .swal2-title {
+  color: #0F172A !important;
+  font-weight: 700 !important;
+}
+.swal2-popup .swal2-html-container {
+  color: #6B7280;
+  font-size: 14px;
+}
+.swal2-popup .swal2-styled.swal2-confirm,
+.swal2-popup .swal2-styled.swal2-cancel,
+.swal2-popup .swal2-styled.swal2-deny {
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  padding: .55rem 1.1rem !important;
+  box-shadow: none !important;
+}
+.swal2-popup .swal2-styled.swal2-confirm:focus { box-shadow: 0 0 0 3px rgba(20,195,142,.3) !important; }
+
+/* Toast variant */
+.swal2-popup.rt-swal-toast {
+  border-radius: 12px !important;
+  border: 1px solid var(--rt-border, #E8ECF2);
+  box-shadow: 0 8px 24px rgba(15,23,42,.1) !important;
+  font-family: inherit !important;
+}
+
+/* Fix swal2 icon ring colors to brand */
+.swal2-icon.swal2-success [class^='swal2-success-line'] { background-color: #14C38E !important; }
+.swal2-icon.swal2-success .swal2-success-ring { border-color: rgba(20,195,142,.3) !important; }
+.swal2-progress-bar { background: #14C38E !important; }
+
+/* ============== Dark theme overrides ============== */
+[data-theme="dark"] .swal2-popup,
+[data-theme="dark"] .swal2-popup.rt-swal,
+[data-theme="dark"] .swal2-popup.rt-swal-toast {
+  background: var(--rt-card-bg) !important;
+  color: var(--rt-text) !important;
+  border-color: var(--rt-border) !important;
+  box-shadow: 0 18px 50px rgba(0,0,0,.6) !important;
+}
+[data-theme="dark"] .swal2-popup .swal2-title          { color: var(--rt-heading) !important; }
+[data-theme="dark"] .swal2-popup .swal2-html-container,
+[data-theme="dark"] .swal2-popup .swal2-content,
+[data-theme="dark"] .swal2-popup .swal2-input-label    { color: var(--rt-text) !important; }
+[data-theme="dark"] .swal2-popup .swal2-footer         { color: var(--rt-text-muted) !important; border-top-color: var(--rt-border) !important; }
+[data-theme="dark"] .swal2-popup .swal2-close          { color: var(--rt-text-muted) !important; }
+[data-theme="dark"] .swal2-popup .swal2-close:hover    { color: var(--rt-text) !important; }
+[data-theme="dark"] .swal2-popup .swal2-input,
+[data-theme="dark"] .swal2-popup .swal2-textarea,
+[data-theme="dark"] .swal2-popup .swal2-select,
+[data-theme="dark"] .swal2-popup .swal2-file {
+  background: var(--rt-body-bg) !important;
+  color: var(--rt-text) !important;
+  border-color: var(--rt-border) !important;
+  box-shadow: none !important;
+}
+[data-theme="dark"] .swal2-popup .swal2-input::placeholder,
+[data-theme="dark"] .swal2-popup .swal2-textarea::placeholder { color: var(--rt-text-muted) !important; }
+[data-theme="dark"] .swal2-popup .swal2-validation-message {
+  background: rgba(239,68,68,.16) !important;
+  color: #FCA5A5 !important;
+}
+[data-theme="dark"] .swal2-popup .swal2-styled.swal2-cancel  { background: rgba(255,255,255,.06) !important; color: var(--rt-text) !important; }
+[data-theme="dark"] .swal2-popup .swal2-styled.swal2-deny    { background: rgba(239,68,68,.16) !important; color: #FCA5A5 !important; }
+[data-theme="dark"] .swal2-container.swal2-backdrop-show     { background: rgba(0,0,0,.65) !important; }
+[data-theme="dark"] .swal2-popup .swal2-timer-progress-bar-container,
+[data-theme="dark"] .swal2-popup .swal2-loader              { background: rgba(255,255,255,.04) !important; }

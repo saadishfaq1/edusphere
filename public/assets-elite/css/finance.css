@@ -1,0 +1,361 @@
+/* ==========================================================================
+   ElitePanel — Finance Dashboard Light Pastel Cards
+   ========================================================================== */
+
+/* ============== Shared Light Pastel Card ============== */
+.fin-light {
+  position: relative; overflow: hidden;
+  border-radius: var(--rt-radius-lg); border: 1px solid;
+  min-height: 100%;
+}
+.fin-mint     { background: linear-gradient(160deg, #FFFFFF 0%, #F4FDF8 100%); border-color: #E0F5EA; }
+.fin-lavender { background: linear-gradient(160deg, #FFFFFF 0%, #FAF8FF 100%); border-color: #ECE9F7; }
+.fin-peach    { background: linear-gradient(160deg, #FFFFFF 0%, #FFFAF2 100%); border-color: #FCEFDF; }
+.fin-sky      { background: linear-gradient(160deg, #FFFFFF 0%, #F4F9FF 100%); border-color: #E2EDFB; }
+.fin-cream    { background: linear-gradient(160deg, #FFFFFF 0%, #FFFCF0 100%); border-color: #FAEFD0; }
+.fin-rose     { background: linear-gradient(160deg, #FFFFFF 0%, #FFF7F9 100%); border-color: #FBE2EC; }
+
+.fin-deco {
+  position: absolute; top: -30px; right: -30px;
+  width: 130px; height: 130px; border-radius: 50%;
+  pointer-events: none;
+}
+.fin-mint .fin-deco     { background: radial-gradient(circle, rgba(20,195,142,.12), transparent 70%); }
+.fin-lavender .fin-deco { background: radial-gradient(circle, rgba(139,92,246,.12), transparent 70%); }
+.fin-peach .fin-deco    { background: radial-gradient(circle, rgba(251,146,60,.15), transparent 70%); }
+.fin-sky .fin-deco      { background: radial-gradient(circle, rgba(14,165,233,.12), transparent 70%); }
+.fin-cream .fin-deco    { background: radial-gradient(circle, rgba(245,158,11,.15), transparent 70%); }
+.fin-rose .fin-deco     { background: radial-gradient(circle, rgba(244,114,182,.15), transparent 70%); }
+
+.fin-body { padding: 1.25rem; position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
+
+.fin-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.8);
+  font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 99px;
+}
+.fin-mint     .fin-pill { color: #047857; }
+.fin-lavender .fin-pill { color: #6D28D9; }
+.fin-peach    .fin-pill { color: #C2410C; }
+.fin-sky      .fin-pill { color: #0369A1; }
+.fin-cream    .fin-pill { color: #B45309; }
+.fin-rose     .fin-pill { color: #BE185D; }
+
+.fin-trend {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 99px;
+}
+.fin-trend.up { background: rgba(34,197,94,.15); color: #16A34A; }
+.fin-trend.down { background: rgba(239,68,68,.15); color: #DC2626; }
+
+.fin-num {
+  font-size: 1.75rem; font-weight: 800; letter-spacing: -.02em;
+  margin: .5rem 0 0; line-height: 1.1;
+}
+.fin-mint     .fin-num { color: #065F46; }
+.fin-lavender .fin-num { color: #5B21B6; }
+.fin-peach    .fin-num { color: #9A3412; }
+.fin-sky      .fin-num { color: #0C4A6E; }
+.fin-cream    .fin-num { color: #78350F; }
+.fin-rose     .fin-num { color: #9D174D; }
+
+.fin-sub { color: var(--rt-text-muted); font-size: 12px; }
+
+/* Cashflow arc inside fin-mint */
+.fin-flow { margin-top: auto; padding-top: 12px; }
+.flow-arc {
+  background: rgba(255,255,255,.7); border-radius: 12px; padding: 10px;
+  display: flex; gap: 8px;
+}
+.flow-in, .flow-out {
+  flex: 1; display: flex; align-items: center; gap: 6px;
+  font-size: 12px;
+}
+.flow-in i {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: #DCFCE7; color: #16A34A;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.flow-out i {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: #FEE2E2; color: #DC2626;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.flow-arc strong { display: block; color: var(--rt-heading); font-size: 13px; }
+.flow-arc span { font-size: 10px; color: var(--rt-text-muted); display: block; line-height: 1.1; }
+
+/* Investment sparkline */
+.fin-spark { margin-top: auto; padding-top: 10px; height: 50px; }
+.fin-spark svg { width: 100%; height: 100%; display: block; }
+
+/* Tax Saved progress */
+.fin-progress { margin-top: auto; }
+.fp-bar { background: rgba(255,255,255,.7); height: 6px; border-radius: 99px; overflow: hidden; }
+.fp-fill {
+  height: 100%; border-radius: 99px;
+  background: linear-gradient(90deg, #FB923C, #F59E0B);
+  transition: width .8s;
+}
+.fp-fill.sky { background: linear-gradient(90deg, #38BDF8, #0EA5E9); }
+.fp-w-49 { width: 49%; } .fp-w-76 { width: 76%; }
+
+.fin-tax-tags {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: 10px;
+}
+.tax-tag {
+  background: rgba(255,255,255,.7);
+  font-size: 10px; padding: 3px 8px; border-radius: 99px;
+  display: inline-flex; align-items: center; gap: 4px;
+  color: #9A3412; font-weight: 600;
+}
+
+/* Net Worth stack */
+.fin-stack { margin-top: auto; }
+.fs-row {
+  display: flex; justify-content: space-between;
+  font-size: 12px; padding: 4px 0;
+  color: var(--rt-text-muted);
+}
+.fs-row strong { color: var(--rt-heading); }
+.fs-row.total {
+  border-top: 1px dashed rgba(0,0,0,.1);
+  padding-top: 8px; margin-top: 4px;
+  font-weight: 600;
+}
+
+/* ============== Investment Portfolio donut ============== */
+.portfolio-row { display: flex; align-items: center; gap: 12px; }
+.portfolio-donut { position: relative; width: 110px; height: 110px; flex-shrink: 0; }
+.portfolio-donut svg { width: 100%; height: 100%; }
+.portfolio-center {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.portfolio-center strong { font-size: 16px; color: var(--rt-heading); }
+.portfolio-center small { font-size: 10px; color: var(--rt-text-muted); }
+.portfolio-legend {
+  list-style: none; padding: 0; margin: 0; flex: 1;
+}
+.portfolio-legend li {
+  display: flex; align-items: center; gap: 8px;
+  padding: 4px 0; font-size: 12px;
+  color: var(--rt-text);
+}
+.portfolio-legend .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+}
+.portfolio-legend strong { margin-left: auto; color: var(--rt-heading); }
+
+/* ============== Top Performing Stock ============== */
+.stock-badge {
+  background: #fff; border: 1px solid var(--rt-border);
+  font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 6px;
+  color: var(--rt-text-muted);
+}
+.stock-head { display: flex; align-items: center; gap: 12px; }
+.stock-logo {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: #fff; border: 1px solid #FDE68A;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #78350F; font-size: 22px;
+  flex-shrink: 0;
+}
+.stock-price {
+  font-size: 1.5rem; font-weight: 800; color: #78350F; letter-spacing: -.02em;
+}
+.stock-spark { height: 60px; }
+.stock-spark svg { width: 100%; height: 100%; display: block; }
+.stock-stats {
+  display: flex; gap: 8px; margin-top: 12px;
+  background: rgba(255,255,255,.7); border-radius: 10px; padding: 10px;
+}
+.stock-stats > div {
+  flex: 1; text-align: center;
+  border-right: 1px solid rgba(0,0,0,.06);
+}
+.stock-stats > div:last-child { border-right: 0; }
+.stock-stats small { display: block; font-size: 10px; color: var(--rt-text-muted); text-transform: uppercase; }
+.stock-stats strong { display: block; font-size: 13px; color: var(--rt-heading); }
+
+/* ============== Monthly Budget ============== */
+.budget-bar {
+  display: flex; height: 14px; border-radius: 99px; overflow: hidden;
+  background: rgba(255,255,255,.6);
+}
+.bb-seg { height: 100%; }
+.bb-housing { width: 20%; background: #EC4899; }
+.bb-food { width: 15.2%; background: #F59E0B; }
+.bb-transport { width: 10.3%; background: #0EA5E9; }
+.bb-entertain { width: 8%; background: #8B5CF6; }
+.bb-other { width: 16.5%; background: #14C38E; }
+.bb-rest { flex: 1; }
+
+.budget-list {
+  list-style: none; padding: 0; margin: 0;
+  background: rgba(255,255,255,.7); border-radius: 10px; padding: 10px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.budget-list li {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; padding: 3px 0;
+  color: var(--rt-text);
+}
+.budget-list .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+}
+.budget-list strong { color: var(--rt-heading); }
+
+/* ============== Wallet Cards ============== */
+.wallet-card {
+  position: relative; overflow: hidden;
+  border-radius: var(--rt-radius-lg); border: 1px solid;
+  min-height: 100%;
+}
+.wallet-usd { background: linear-gradient(160deg, #FFFFFF 0%, #F4F9FF 100%); border-color: #E2EDFB; }
+.wallet-eur { background: linear-gradient(160deg, #FFFFFF 0%, #FAF8FF 100%); border-color: #ECE9F7; }
+.wallet-btc { background: linear-gradient(160deg, #FFFFFF 0%, #FFFAF2 100%); border-color: #FCEFDF; }
+.wallet-gold { background: linear-gradient(160deg, #FFFFFF 0%, #FFFCF0 100%); border-color: #FAEFD0; }
+
+.wallet-deco {
+  position: absolute; bottom: -30px; right: -30px;
+  width: 110px; height: 110px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.6), transparent 70%);
+  pointer-events: none;
+}
+
+.wallet-body { padding: 1.25rem; position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
+
+.wallet-flag {
+  width: 42px; height: 42px; border-radius: 12px;
+  background: #fff; border: 1px solid rgba(0,0,0,.06);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 22px; box-shadow: 0 2px 6px rgba(0,0,0,.04);
+}
+.wallet-crypto {
+  background: linear-gradient(135deg, #fff, #fff7e0);
+  color: #B45309;
+}
+.wallet-btc .wallet-crypto { color: #C2410C; }
+
+.wallet-trend {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 99px;
+}
+.wallet-trend.up { background: rgba(34,197,94,.15); color: #16A34A; }
+.wallet-trend.down { background: rgba(239,68,68,.15); color: #DC2626; }
+
+.wallet-name {
+  display: block; font-size: 11px; color: var(--rt-text-muted);
+  text-transform: uppercase; letter-spacing: .05em; font-weight: 600;
+  margin-top: .5rem;
+}
+.wallet-amount {
+  font-size: 1.5rem; font-weight: 800;
+  color: var(--rt-heading); letter-spacing: -.02em;
+  line-height: 1; margin: 4px 0 4px;
+}
+.wallet-amount small { font-size: .9rem; color: var(--rt-text-muted); font-weight: 600; }
+.wallet-sub { font-size: 11px; color: var(--rt-text-muted); }
+
+@media (max-width: 991.98px) {
+  .portfolio-row { flex-direction: column; align-items: stretch; }
+  .portfolio-donut { margin: 0 auto; }
+}
+
+/* ============== Dark theme overrides ============== */
+
+/* All pastel light cards — switch to translucent tinted dark gradients */
+[data-theme="dark"] .fin-mint     {
+  background: linear-gradient(160deg, var(--rt-card-bg) 0%, rgba(20,195,142,.08) 100%);
+  border-color: rgba(20,195,142,.25);
+}
+[data-theme="dark"] .fin-lavender {
+  background: linear-gradient(160deg, var(--rt-card-bg) 0%, rgba(139,92,246,.08) 100%);
+  border-color: rgba(167,139,250,.25);
+}
+[data-theme="dark"] .fin-peach    {
+  background: linear-gradient(160deg, var(--rt-card-bg) 0%, rgba(251,146,60,.08) 100%);
+  border-color: rgba(251,146,60,.25);
+}
+[data-theme="dark"] .fin-sky      {
+  background: linear-gradient(160deg, var(--rt-card-bg) 0%, rgba(14,165,233,.08) 100%);
+  border-color: rgba(56,189,248,.25);
+}
+[data-theme="dark"] .fin-cream    {
+  background: linear-gradient(160deg, var(--rt-card-bg) 0%, rgba(245,158,11,.08) 100%);
+  border-color: rgba(252,211,77,.25);
+}
+[data-theme="dark"] .fin-rose     {
+  background: linear-gradient(160deg, var(--rt-card-bg) 0%, rgba(244,114,182,.08) 100%);
+  border-color: rgba(244,114,182,.25);
+}
+
+/* Fin pill — frosted white → translucent */
+[data-theme="dark"] .fin-pill { background: rgba(255,255,255,.08); }
+[data-theme="dark"] .fin-mint     .fin-pill { color: #6EE7B7; }
+[data-theme="dark"] .fin-lavender .fin-pill { color: #C4B5FD; }
+[data-theme="dark"] .fin-peach    .fin-pill { color: #FDBA74; }
+[data-theme="dark"] .fin-sky      .fin-pill { color: #7DD3FC; }
+[data-theme="dark"] .fin-cream    .fin-pill { color: #FCD34D; }
+[data-theme="dark"] .fin-rose     .fin-pill { color: #F9A8D4; }
+
+/* Fin big numbers — brighten the deep pastel colors */
+[data-theme="dark"] .fin-mint     .fin-num { color: #6EE7B7; }
+[data-theme="dark"] .fin-lavender .fin-num { color: #C4B5FD; }
+[data-theme="dark"] .fin-peach    .fin-num { color: #FDBA74; }
+[data-theme="dark"] .fin-sky      .fin-num { color: #93C5FD; }
+[data-theme="dark"] .fin-cream    .fin-num { color: #FCD34D; }
+[data-theme="dark"] .fin-rose     .fin-num { color: #F9A8D4; }
+
+/* Trend pills — dark variants */
+[data-theme="dark"] .fin-trend.up   { background: rgba(34,197,94,.18);  color: #86EFAC; }
+[data-theme="dark"] .fin-trend.down { background: rgba(239,68,68,.18);  color: #FCA5A5; }
+[data-theme="dark"] .wallet-trend.up   { background: rgba(34,197,94,.18); color: #86EFAC; }
+[data-theme="dark"] .wallet-trend.down { background: rgba(239,68,68,.18); color: #FCA5A5; }
+
+/* Inner frosted-white sections (flow-arc, fp-bar, tax-tags, stock-stats, budget-list, budget-bar) */
+[data-theme="dark"] .flow-arc,
+[data-theme="dark"] .fp-bar,
+[data-theme="dark"] .tax-tag,
+[data-theme="dark"] .stock-stats,
+[data-theme="dark"] .budget-list,
+[data-theme="dark"] .budget-bar { background: rgba(255,255,255,.04); }
+
+/* Flow icons — keep colored but darker chip background */
+[data-theme="dark"] .flow-in i  { background: rgba(34,197,94,.18);  color: #86EFAC; }
+[data-theme="dark"] .flow-out i { background: rgba(239,68,68,.18);  color: #FCA5A5; }
+
+/* Tax tag text */
+[data-theme="dark"] .tax-tag { color: #FDBA74; }
+
+/* Stock card */
+[data-theme="dark"] .stock-badge { background: rgba(255,255,255,.05); border-color: var(--rt-border); color: var(--rt-text-muted); }
+[data-theme="dark"] .stock-logo  { background: rgba(252,211,77,.10); border-color: rgba(252,211,77,.30); color: #FCD34D; }
+[data-theme="dark"] .stock-price { color: #FCD34D; }
+[data-theme="dark"] .stock-stats > div { border-right-color: rgba(255,255,255,.06); }
+
+/* Net Worth stack */
+[data-theme="dark"] .fs-row.total { border-top-color: rgba(255,255,255,.10); }
+
+/* Wallet cards (pastel by currency) */
+[data-theme="dark"] .wallet-usd  {
+  background: linear-gradient(160deg, var(--rt-card-bg) 0%, rgba(14,165,233,.08) 100%);
+  border-color: rgba(56,189,248,.25);
+}
+[data-theme="dark"] .wallet-eur  {
+  background: linear-gradient(160deg, var(--rt-card-bg) 0%, rgba(139,92,246,.08) 100%);
+  border-color: rgba(167,139,250,.25);
+}
+[data-theme="dark"] .wallet-btc  {
+  background: linear-gradient(160deg, var(--rt-card-bg) 0%, rgba(251,146,60,.08) 100%);
+  border-color: rgba(251,146,60,.25);
+}
+[data-theme="dark"] .wallet-gold {
+  background: linear-gradient(160deg, var(--rt-card-bg) 0%, rgba(245,158,11,.08) 100%);
+  border-color: rgba(252,211,77,.25);
+}
+[data-theme="dark"] .wallet-flag    { background: rgba(255,255,255,.06); border-color: var(--rt-border); }
+[data-theme="dark"] .wallet-crypto  { background: linear-gradient(135deg, rgba(252,211,77,.10), rgba(245,158,11,.06)); color: #FCD34D; }
+[data-theme="dark"] .wallet-btc .wallet-crypto { color: #FDBA74; }
+[data-theme="dark"] .wallet-deco { background: radial-gradient(circle, rgba(255,255,255,.04), transparent 70%); }

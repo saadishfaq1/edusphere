@@ -1,0 +1,38 @@
+/* ==========================================================================
+   ElitePanel — Form Wizard
+   ========================================================================== */
+
+.wizard-steps li[data-step] { transition: color .2s; }
+.wizard-steps li[data-step]:hover { color: var(--rt-primary); }
+
+.wiz-step { animation: wiz-fade .25s ease both; }
+@keyframes wiz-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Review cards on final step */
+.rev-card {
+  border: 1px solid var(--rt-border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: var(--rt-body-bg);
+}
+.rev-head {
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--rt-primary);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  padding-bottom: 8px;
+  margin-bottom: 6px;
+  border-bottom: 1px dashed var(--rt-border);
+  display: flex; align-items: center; gap: 6px;
+}
+.rev-row {
+  display: flex; justify-content: space-between;
+  font-size: 13px;
+  padding: 4px 0;
+  color: var(--rt-text-muted);
+}
+.rev-row strong { color: var(--rt-heading); }

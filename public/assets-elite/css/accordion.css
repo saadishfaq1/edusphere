@@ -1,0 +1,386 @@
+/* ==========================================================================
+   ElitePanel — Stylish Accordions
+   ========================================================================== */
+
+/* ============== Default Accordion — Stylish Override ============== */
+.accordion {
+  --bs-accordion-bg: transparent;
+  --bs-accordion-border-color: transparent;
+  --bs-accordion-active-color: var(--rt-primary);
+  --bs-accordion-active-bg: transparent;
+  --bs-accordion-btn-color: var(--rt-heading);
+  --bs-accordion-btn-focus-box-shadow: none;
+  --bs-accordion-btn-focus-border-color: transparent;
+}
+
+.accordion .accordion-item {
+  background: var(--rt-card-bg);
+  border: 1px solid var(--rt-border) !important;
+  border-radius: var(--rt-radius) !important;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: var(--rt-trans);
+  box-shadow: var(--rt-shadow-xs);
+}
+.accordion .accordion-item:last-child { margin-bottom: 0; }
+.accordion .accordion-item:has(.accordion-button:not(.collapsed)) {
+  border-color: var(--rt-primary) !important;
+  box-shadow: 0 6px 18px rgba(20,195,142,.12);
+}
+
+.accordion .accordion-header { margin: 0; }
+
+.accordion .accordion-button {
+  background: var(--rt-card-bg);
+  font-weight: 600; font-size: 14px;
+  padding: 1rem 1.15rem;
+  color: var(--rt-heading);
+  border: 0; box-shadow: none;
+  display: flex; align-items: center; gap: 12px;
+  transition: var(--rt-trans);
+  position: relative;
+}
+.accordion .accordion-button:hover { background: var(--rt-body-bg); }
+.accordion .accordion-button:focus { box-shadow: none; }
+
+.accordion .accordion-button:not(.collapsed) {
+  background: linear-gradient(120deg, var(--rt-primary-soft) 0%, var(--rt-card-bg) 100%);
+  color: var(--rt-primary);
+  box-shadow: inset 4px 0 0 var(--rt-primary);
+}
+[data-theme="dark"] .accordion .accordion-button:not(.collapsed) {
+  --bs-accordion-active-bg: transparent;
+  --bs-accordion-active-color: #6EE7B7;
+  background-color: rgba(20,195,142,.18) !important;
+  background-image: linear-gradient(120deg, rgba(20,195,142,.22) 0%, rgba(20,195,142,.06) 100%);
+  color: #6EE7B7;
+}
+
+/* Custom +/- icon */
+.accordion .accordion-button::after {
+  background-image: none;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background-color: var(--rt-body-bg);
+  display: inline-flex; align-items: center; justify-content: center;
+  position: relative;
+  transform: none;
+  flex-shrink: 0;
+  transition: all .3s ease;
+}
+.accordion .accordion-button::before {
+  content: ''; position: absolute;
+  width: 12px; height: 2px; border-radius: 99px;
+  background: var(--rt-text-muted);
+  right: 1.75rem; top: 50%; margin-top: -1px;
+  z-index: 1; transition: all .3s ease;
+}
+/* The plus's vertical bar - using a pseudo on ::after via a child trick. We'll use a thin span via box-shadow */
+.accordion .accordion-button::after {
+  box-shadow:
+    inset 0 0 0 0 transparent;
+}
+.accordion .accordion-header {
+  position: relative;
+}
+.accordion .accordion-header::after {
+  content: ''; position: absolute;
+  width: 2px; height: 12px; border-radius: 99px;
+  background: var(--rt-text-muted);
+  right: calc(1.75rem + 5px); top: 50%; margin-top: -6px;
+  z-index: 2; transition: all .3s ease; pointer-events: none;
+}
+.accordion .accordion-item:has(.accordion-button:not(.collapsed)) .accordion-header::after {
+  transform: scaleY(0);
+}
+.accordion .accordion-item:has(.accordion-button:not(.collapsed)) .accordion-button::before {
+  background: #fff;
+}
+.accordion .accordion-item:has(.accordion-button:not(.collapsed)) .accordion-button::after {
+  background-color: var(--rt-primary);
+  transform: rotate(180deg);
+  box-shadow: 0 4px 10px rgba(20,195,142,.35);
+}
+
+.accordion .accordion-body {
+  padding: 0 1.15rem 1.15rem;
+  color: var(--rt-text-muted); font-size: 14px; line-height: 1.65;
+}
+
+/* ============== Flush Variant — Clean Disclosure List ============== */
+.accordion-flush .accordion-item {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--rt-border) !important;
+  border-radius: 0 !important;
+  margin-bottom: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+.accordion-flush .accordion-item:last-child { border-bottom: 0 !important; }
+
+.accordion-flush .accordion-item:has(.accordion-button:not(.collapsed)) {
+  border-color: var(--rt-border) !important;
+  box-shadow: none !important;
+}
+
+.accordion-flush .accordion-button {
+  background: transparent !important;
+  padding: 1.1rem 1.25rem !important;
+  font-weight: 600;
+  color: var(--rt-heading);
+  border: 0 !important;
+  box-shadow: none !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.accordion-flush .accordion-button:hover {
+  background: transparent !important;
+  color: var(--rt-primary);
+}
+.accordion-flush .accordion-button:not(.collapsed) {
+  background: transparent !important;
+  color: var(--rt-primary) !important;
+  box-shadow: none !important;
+}
+
+.accordion-flush .accordion-body {
+  padding: 0 1.25rem 1.1rem !important;
+  color: var(--rt-text-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* Strip ALL inherited +/- markers from default accordion */
+.accordion-flush .accordion-button::before { content: none !important; }
+.accordion-flush .accordion-header::after { content: none !important; }
+
+/* Clean chevron toggle on the right */
+.accordion-flush .accordion-button::after {
+  content: '' !important;
+  position: static !important;
+  width: 32px !important;
+  height: 32px !important;
+  margin-left: auto;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--rt-body-bg) !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236B7280'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-size: 14px !important;
+  background-position: center !important;
+  display: inline-flex !important;
+  box-shadow: none !important;
+  transform: rotate(0) !important;
+  transition: all .3s ease !important;
+}
+
+.accordion-flush .accordion-button:hover::after {
+  background-color: var(--rt-primary-light) !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2314C38E'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+}
+
+.accordion-flush .accordion-item:has(.accordion-button:not(.collapsed)) .accordion-button::after {
+  background-color: var(--rt-primary) !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+  transform: rotate(180deg) !important;
+  box-shadow: 0 4px 10px rgba(20,195,142,.35) !important;
+}
+
+/* ============== Numbered Accordion ============== */
+.accordion-numbered { counter-reset: acc-num; }
+.accordion-numbered .accordion-item { counter-increment: acc-num; }
+.accordion-numbered .accordion-button {
+  padding-left: 4.5rem;
+  position: relative;
+  z-index: 1;
+}
+.accordion-numbered .accordion-header > button::before {
+  /* override the +/- before — numbered variant uses ::before slot for number */
+  content: none;
+}
+.accordion-numbered .accordion-header::before {
+  content: counter(acc-num, decimal-leading-zero);
+  position: absolute;
+  left: 1.15rem; top: 50%; transform: translateY(-50%);
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: var(--rt-primary-soft);
+  color: var(--rt-primary);
+  font-weight: 800; font-size: 13px;
+  display: inline-flex; align-items: center; justify-content: center;
+  z-index: 5;
+  pointer-events: none;
+  transition: all .3s ease;
+}
+/* Numbered variant — make sure the right-side toggle bar still shows the - */
+.accordion-numbered .accordion-header::after {
+  /* keep header::after for toggle hint */
+}
+.accordion-numbered .accordion-button:hover .accordion-header::before,
+.accordion-numbered .accordion-item:hover .accordion-header::before {
+  background: var(--rt-primary);
+  color: #fff;
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 4px 10px rgba(20,195,142,.3);
+}
+.accordion-numbered .accordion-item:has(.accordion-button:not(.collapsed)) .accordion-header::before {
+  background: var(--rt-primary);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(20,195,142,.4);
+}
+/* Re-enable the +/- pseudos for numbered */
+.accordion-numbered .accordion-header::after {
+  /* keep the - bar */
+}
+
+/* ============== Icon Tile Accordion ============== */
+.accordion-icontile .accordion-button {
+  padding: 1rem 1.15rem 1rem 1rem;
+}
+.accordion-icontile .acc-tile {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  transition: var(--rt-trans);
+}
+.accordion-icontile .accordion-item:has(.accordion-button:not(.collapsed)) .acc-tile {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(20,195,142,.18);
+}
+.accordion-icontile .acc-title {
+  flex: 1;
+  display: flex; flex-direction: column;
+  gap: 2px; line-height: 1.2;
+}
+.accordion-icontile .acc-title small {
+  font-size: 12px; font-weight: 400;
+  color: var(--rt-text-muted);
+}
+.accordion-icontile .accordion-item:has(.accordion-button:not(.collapsed)) .acc-title small {
+  color: var(--rt-primary);
+  opacity: .8;
+}
+
+/* ============== Premium Gradient Accordion (Dark) ============== */
+.accordion-premium { background: linear-gradient(160deg, #0F172A 0%, #1E293B 100%);
+  border-radius: var(--rt-radius-lg); padding: 1rem; }
+.accordion-premium .accordion-item {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08) !important;
+  border-radius: 12px !important;
+  box-shadow: none;
+}
+.accordion-premium .accordion-item:has(.accordion-button:not(.collapsed)) {
+  background: linear-gradient(120deg, rgba(20,195,142,.15) 0%, rgba(255,255,255,.04) 100%);
+  border-color: rgba(20,195,142,.4) !important;
+  box-shadow: 0 0 0 0 rgba(20,195,142,.5);
+}
+.accordion-premium .accordion-button {
+  background: transparent !important;
+  color: #fff !important;
+  font-weight: 600;
+  box-shadow: none !important;
+}
+.accordion-premium .accordion-button:hover { background: rgba(255,255,255,.04) !important; }
+.accordion-premium .accordion-button:not(.collapsed) {
+  background: transparent !important;
+  color: #fff !important;
+}
+.accordion-premium .accordion-body { color: rgba(255,255,255,.7); padding-left: 1.15rem; padding-right: 1.15rem; }
+
+.accordion-premium .accordion-header::after {
+  background: rgba(255,255,255,.7) !important;
+}
+.accordion-premium .accordion-button::before {
+  background: rgba(255,255,255,.7) !important;
+}
+.accordion-premium .accordion-button::after {
+  background-color: rgba(255,255,255,.1) !important;
+}
+.accordion-premium .accordion-item:has(.accordion-button:not(.collapsed)) .accordion-button::after {
+  background-color: var(--rt-primary) !important;
+}
+.accordion-premium .accordion-item:has(.accordion-button:not(.collapsed)) .accordion-button::before {
+  background: #fff !important;
+}
+
+/* ============== Glass / Soft Variant ============== */
+.accordion-soft .accordion-item {
+  background: linear-gradient(160deg, var(--rt-primary-soft) 0%, var(--rt-card-bg) 100%);
+  border: 1px solid var(--rt-primary-light) !important;
+}
+.accordion-soft .accordion-item:has(.accordion-button:not(.collapsed)) {
+  background: linear-gradient(120deg, var(--rt-primary) 0%, #0EA475 100%);
+  border-color: var(--rt-primary) !important;
+}
+.accordion-soft .accordion-item:has(.accordion-button:not(.collapsed)) .accordion-button {
+  color: #fff !important;
+  box-shadow: none;
+  background: transparent;
+}
+.accordion-soft .accordion-item:has(.accordion-button:not(.collapsed)) .accordion-body {
+  color: rgba(255,255,255,.92);
+}
+.accordion-soft .accordion-item:has(.accordion-button:not(.collapsed)) .accordion-header::after,
+.accordion-soft .accordion-item:has(.accordion-button:not(.collapsed)) .accordion-button::before {
+  background: #fff !important;
+}
+.accordion-soft .accordion-item:has(.accordion-button:not(.collapsed)) .accordion-button::after {
+  background-color: rgba(255,255,255,.2) !important;
+}
+
+/* Animation for content reveal */
+.accordion-collapse.collapse.show .accordion-body > * {
+  animation: acc-fade-up .35s ease both;
+}
+@keyframes acc-fade-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============== Dark theme overrides ============== */
+
+/* Default & numbered & icontile — open card border + halo */
+[data-theme="dark"] .accordion .accordion-item:has(.accordion-button:not(.collapsed)) {
+  box-shadow: 0 6px 18px rgba(20,195,142,.18);
+}
+
+/* +/- toggle bars — lighter on dark for visibility */
+[data-theme="dark"] .accordion .accordion-button::before,
+[data-theme="dark"] .accordion .accordion-header::after {
+  background: var(--rt-text-muted);
+}
+[data-theme="dark"] .accordion .accordion-button::after {
+  background-color: rgba(255,255,255,.06);
+}
+
+/* Numbered: counter chip */
+[data-theme="dark"] .accordion-numbered .accordion-header::before {
+  background: rgba(20,195,142,.18);
+  color: #6EE7B7;
+}
+[data-theme="dark"] .accordion-numbered .accordion-button:hover .accordion-header::before,
+[data-theme="dark"] .accordion-numbered .accordion-item:hover .accordion-header::before,
+[data-theme="dark"] .accordion-numbered .accordion-item:has(.accordion-button:not(.collapsed)) .accordion-header::before {
+  background: var(--rt-primary);
+  color: #fff;
+}
+
+/* Flush — borders & active text */
+[data-theme="dark"] .accordion-flush .accordion-item { border-bottom-color: var(--rt-border) !important; }
+[data-theme="dark"] .accordion-flush .accordion-button { color: var(--rt-heading); }
+[data-theme="dark"] .accordion-flush .accordion-button:not(.collapsed) { color: #6EE7B7 !important; background: transparent !important; }
+[data-theme="dark"] .accordion-flush .accordion-button::after { background-color: rgba(255,255,255,.06) !important; }
+[data-theme="dark"] .accordion-flush .accordion-button:hover::after { background-color: rgba(20,195,142,.18) !important; }
+
+/* Soft variant — pastel→white gradient now uses card-bg in dark */
+[data-theme="dark"] .accordion-soft .accordion-item {
+  background: linear-gradient(160deg, rgba(20,195,142,.14) 0%, var(--rt-card-bg) 100%);
+  border-color: rgba(20,195,142,.30) !important;
+}
+/* Soft active state stays bright green gradient with white text - intentional, no change */
+
+/* Premium variant is already dark-themed; nothing to do */

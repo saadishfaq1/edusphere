@@ -1,0 +1,58 @@
+/* ==========================================================================
+   ElitePanel — UI Cards Library page
+   ========================================================================== */
+
+.section-block {
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+.section-block::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem; top: 1.6rem; bottom: 0;
+  width: 3px; border-radius: 99px;
+  background: linear-gradient(180deg, var(--rt-primary), transparent);
+  opacity: .25;
+}
+
+.section-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1rem; padding-bottom: .85rem;
+  border-bottom: 1px dashed var(--rt-border);
+}
+.section-head h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--rt-heading);
+  letter-spacing: -.01em;
+}
+.section-head h4::before {
+  content: '';
+  display: inline-block;
+  width: 6px; height: 18px; border-radius: 3px;
+  background: var(--rt-primary);
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* Image overlay card */
+.image-overlay-card {
+  position: relative;
+}
+.image-overlay-card .image-overlay-text {
+  position: absolute;
+  inset: 0;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 1rem;
+  color: #fff;
+  background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,.7) 100%);
+  border-radius: inherit;
+}
+
+/* Smooth scroll for anchor nav */
+html { scroll-behavior: smooth; }
+:target { scroll-margin-top: 90px; }
+
+@media (max-width: 991.98px) {
+  .section-block::before { display: none; }
+}

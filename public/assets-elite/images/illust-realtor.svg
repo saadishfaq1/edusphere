@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 220" fill="none">
+  <defs>
+    <linearGradient id="rg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".55"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="140" cy="200" rx="100" ry="10" fill="rgba(0,0,0,.15)"/>
+  <!-- House -->
+  <path d="M60 130l60-46 60 46v52H60z" fill="url(#rg1)"/>
+  <path d="M60 130l60-46 60 46-2 4-58-44-58 44z" fill="rgba(0,0,0,.08)"/>
+  <rect x="100" y="150" width="40" height="32" fill="#14C38E" rx="2"/>
+  <rect x="148" y="150" width="22" height="22" fill="#0EA475" rx="2"/>
+  <!-- Building -->
+  <rect x="180" y="100" width="60" height="82" fill="url(#rg1)"/>
+  <g fill="#14C38E">
+    <rect x="188" y="108" width="10" height="12" rx="1"/>
+    <rect x="204" y="108" width="10" height="12" rx="1"/>
+    <rect x="220" y="108" width="10" height="12" rx="1"/>
+    <rect x="188" y="128" width="10" height="12" rx="1"/>
+    <rect x="204" y="128" width="10" height="12" rx="1"/>
+    <rect x="220" y="128" width="10" height="12" rx="1"/>
+    <rect x="188" y="148" width="10" height="12" rx="1"/>
+    <rect x="220" y="148" width="10" height="12" rx="1"/>
+  </g>
+  <!-- Realtor character -->
+  <circle cx="40" cy="120" r="14" fill="#FFD7B5"/>
+  <path d="M40 100c8 0 14 6 14 14 0-2-2-4-4-4-6 0-12-6-10-10z" fill="#3D2B1F"/>
+  <rect x="26" y="134" width="28" height="36" rx="6" fill="#fff"/>
+  <path d="M26 140l28-2v8H26z" fill="#14C38E"/>
+  <circle cx="40" cy="146" r="2" fill="#0EA475"/>
+  <!-- Key -->
+  <circle cx="220" cy="60" r="10" fill="#fff" opacity=".95"/>
+  <circle cx="220" cy="60" r="4" fill="#14C38E"/>
+  <rect x="228" y="58" width="20" height="4" fill="#fff" opacity=".95"/>
+  <rect x="244" y="58" width="3" height="8" fill="#fff" opacity=".95"/>
+</svg>

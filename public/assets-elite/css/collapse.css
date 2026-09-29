@@ -1,0 +1,100 @@
+/* ==========================================================================
+   ElitePanel — Advanced Collapse
+   ========================================================================== */
+
+/* ============== "Show More" link toggle ============== */
+.show-more-link {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--rt-primary);
+  display: inline-flex; align-items: center;
+}
+.show-more-link i { transition: transform .25s; }
+.show-more-link:hover { color: var(--rt-primary-dark); }
+.show-more-link[aria-expanded="false"] .hide-text { display: none; }
+.show-more-link[aria-expanded="true"] .show-text { display: none; }
+.show-more-link[aria-expanded="true"] i { transform: rotate(180deg); }
+
+/* ============== Collapsible Card chevron toggle ============== */
+.collapsible-card .card-header { cursor: pointer; }
+.collapsible-card .collapse-toggle i { transition: transform .25s; }
+.collapsible-card .collapse-toggle.collapsed i { transform: rotate(180deg); }
+
+/* ============== "When collapsed/expanded" button label ============== */
+[data-bs-toggle="collapse"][aria-expanded="false"] .when-expanded { display: none; }
+[data-bs-toggle="collapse"][aria-expanded="true"] .when-collapsed { display: none; }
+
+/* ============== Inline reveal rows (table-style) ============== */
+.reveal-row {
+  border-bottom: 1px solid var(--rt-border);
+  transition: background .2s;
+}
+.reveal-row:last-child { border-bottom: 0; }
+.reveal-row:has(.collapse.show) { background: var(--rt-primary-soft); }
+
+.reveal-head {
+  display: flex; align-items: center; gap: 12px;
+  padding: .85rem 1.25rem;
+  cursor: pointer;
+  transition: background .2s;
+}
+.reveal-head:hover { background: var(--rt-body-bg); }
+.reveal-amount {
+  font-weight: 700;
+  margin-left: auto;
+  margin-right: 8px;
+}
+.reveal-arrow {
+  color: var(--rt-text-muted);
+  transition: transform .25s;
+  font-size: 14px;
+}
+.reveal-row:has(.collapse.show) .reveal-arrow { transform: rotate(180deg); color: var(--rt-primary); }
+.reveal-body {
+  padding: 0 1.25rem 1.25rem 5rem;
+  background: rgba(255,255,255,.5);
+}
+
+/* ============== Sidebar Group Demo ============== */
+.sidebar-coll-demo { display: flex; flex-direction: column; gap: 4px; }
+.sgd-toggle {
+  display: flex; align-items: center; gap: 8px;
+  padding: .65rem .85rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--rt-text);
+  font-weight: 600;
+  font-size: 14px;
+  background: var(--rt-body-bg);
+  transition: var(--rt-trans);
+}
+.sgd-toggle:hover { background: var(--rt-primary-soft); color: var(--rt-primary); }
+.sgd-toggle .sgd-chev { margin-left: 0; transition: transform .25s; font-size: 12px; }
+.sgd-toggle.collapsed .sgd-chev { transform: rotate(-90deg); }
+.sgd-toggle:not(.collapsed) { color: var(--rt-primary); background: var(--rt-primary-soft); }
+
+.sgd-sub {
+  list-style: none; padding: 8px 0 4px 28px; margin: 4px 0 0;
+  border-left: 1px dashed var(--rt-border);
+  margin-left: 12px;
+}
+.sgd-sub li a {
+  display: flex; align-items: center; gap: 8px;
+  padding: .35rem .5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--rt-text-muted);
+  font-size: 13px;
+  transition: var(--rt-trans);
+}
+.sgd-sub li a:hover { background: var(--rt-body-bg); color: var(--rt-primary); }
+.sgd-sub li a span {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--rt-text-muted);
+  background: var(--rt-body-bg);
+  padding: 1px 6px;
+  border-radius: 99px;
+}
+.sgd-sub li a:hover span { background: var(--rt-primary); color: #fff; }

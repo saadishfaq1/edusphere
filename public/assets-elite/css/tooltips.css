@@ -1,0 +1,127 @@
+/* ==========================================================================
+   ElitePanel — Advanced Tooltips
+   ========================================================================== */
+
+.status-dot {
+  display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+/* Default tooltip refinement */
+.tooltip {
+  --bs-tooltip-bg: #0F172A;
+  --bs-tooltip-color: #fff;
+  --bs-tooltip-padding-x: .65rem;
+  --bs-tooltip-padding-y: .4rem;
+  --bs-tooltip-border-radius: 8px;
+  --bs-tooltip-font-size: 12px;
+  font-family: inherit;
+  filter: drop-shadow(0 4px 12px rgba(15,23,42,.18));
+}
+.tooltip-inner {
+  font-weight: 500;
+  text-align: left;
+  line-height: 1.45;
+  letter-spacing: .01em;
+}
+.tooltip-inner kbd {
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.3);
+  color: #fff;
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  margin-left: 4px;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+/* ============== Colored Tooltip Variants ============== */
+.tooltip.tt-primary { --bs-tooltip-bg: #14C38E; }
+.tooltip.tt-primary .tooltip-arrow::before { border-top-color: #14C38E; }
+.bs-tooltip-bottom .tooltip.tt-primary .tooltip-arrow::before,
+.tooltip.tt-primary.bs-tooltip-bottom .tooltip-arrow::before { border-bottom-color: #14C38E; }
+.tooltip.tt-primary.bs-tooltip-start .tooltip-arrow::before { border-left-color: #14C38E; }
+.tooltip.tt-primary.bs-tooltip-end .tooltip-arrow::before { border-right-color: #14C38E; }
+
+.tooltip.tt-success { --bs-tooltip-bg: #16A34A; }
+.tooltip.tt-success .tooltip-arrow::before { border-top-color: #16A34A; }
+.tooltip.tt-success.bs-tooltip-bottom .tooltip-arrow::before { border-bottom-color: #16A34A; }
+.tooltip.tt-success.bs-tooltip-start .tooltip-arrow::before { border-left-color: #16A34A; }
+.tooltip.tt-success.bs-tooltip-end .tooltip-arrow::before { border-right-color: #16A34A; }
+
+.tooltip.tt-info { --bs-tooltip-bg: #0EA5E9; }
+.tooltip.tt-info .tooltip-arrow::before { border-top-color: #0EA5E9; }
+.tooltip.tt-info.bs-tooltip-bottom .tooltip-arrow::before { border-bottom-color: #0EA5E9; }
+.tooltip.tt-info.bs-tooltip-start .tooltip-arrow::before { border-left-color: #0EA5E9; }
+.tooltip.tt-info.bs-tooltip-end .tooltip-arrow::before { border-right-color: #0EA5E9; }
+
+.tooltip.tt-warning { --bs-tooltip-bg: #F59E0B; --bs-tooltip-color: #fff; }
+.tooltip.tt-warning .tooltip-arrow::before { border-top-color: #F59E0B; }
+.tooltip.tt-warning.bs-tooltip-bottom .tooltip-arrow::before { border-bottom-color: #F59E0B; }
+.tooltip.tt-warning.bs-tooltip-start .tooltip-arrow::before { border-left-color: #F59E0B; }
+.tooltip.tt-warning.bs-tooltip-end .tooltip-arrow::before { border-right-color: #F59E0B; }
+
+.tooltip.tt-danger { --bs-tooltip-bg: #EF4444; }
+.tooltip.tt-danger .tooltip-arrow::before { border-top-color: #EF4444; }
+.tooltip.tt-danger.bs-tooltip-bottom .tooltip-arrow::before { border-bottom-color: #EF4444; }
+.tooltip.tt-danger.bs-tooltip-start .tooltip-arrow::before { border-left-color: #EF4444; }
+.tooltip.tt-danger.bs-tooltip-end .tooltip-arrow::before { border-right-color: #EF4444; }
+
+.tooltip.tt-light {
+  --bs-tooltip-bg: #FFFFFF;
+  --bs-tooltip-color: #1F2A37;
+}
+.tooltip.tt-light .tooltip-inner {
+  border: 1px solid var(--rt-border);
+  box-shadow: 0 4px 12px rgba(15,23,42,.06);
+}
+.tooltip.tt-light .tooltip-arrow::before { border-top-color: #FFFFFF; }
+.tooltip.tt-light.bs-tooltip-bottom .tooltip-arrow::before { border-bottom-color: #FFFFFF; }
+.tooltip.tt-light.bs-tooltip-start .tooltip-arrow::before { border-left-color: #FFFFFF; }
+.tooltip.tt-light.bs-tooltip-end .tooltip-arrow::before { border-right-color: #FFFFFF; }
+.tooltip.tt-light kbd {
+  background: var(--rt-body-bg);
+  border-color: var(--rt-border);
+  color: var(--rt-text);
+}
+
+/* ============== List Tooltip ============== */
+.tooltip.tt-list .tooltip-inner {
+  max-width: 240px;
+  text-align: left;
+  padding: .65rem .85rem;
+}
+.tooltip.tt-list .tooltip-inner ul {
+  padding-left: 18px;
+  margin: 4px 0 0;
+}
+.tooltip.tt-list .tooltip-inner ul li {
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* ============== Shortcut Tooltip ============== */
+.tooltip.tt-shortcut .tooltip-inner {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  letter-spacing: .03em;
+}
+
+/* ============== KBD Tooltip ============== */
+.tooltip.tt-kbd .tooltip-inner {
+  display: flex; align-items: center; gap: 6px;
+  padding: .4rem .65rem;
+}
+
+/* ============== User Card Tooltip ============== */
+.tooltip.tt-user .tooltip-inner {
+  max-width: 260px;
+  padding: .6rem .85rem;
+  text-align: left;
+}
+.tooltip.tt-user .tooltip-inner small {
+  display: block;
+  color: rgba(255,255,255,.7);
+  font-size: 11px;
+  margin-top: 2px;
+}

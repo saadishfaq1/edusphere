@@ -1,0 +1,445 @@
+/* ==========================================================================
+   ElitePanel — Sales Dashboard Premium Hero (unique designs)
+   ========================================================================== */
+
+/* ============== ROW A.1 — Live Sales Beat (EKG card) ============== */
+.pulse-card {
+  position: relative; overflow: hidden; min-height: 100%;
+  border-radius: var(--rt-radius-lg);
+  background: linear-gradient(160deg, #0F172A 0%, #1E293B 100%);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(15,23,42,.3);
+}
+.pulse-card-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(20,195,142,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20,195,142,.06) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+.pulse-card-body { position: relative; z-index: 1; padding: 1.25rem; height: 100%; display: flex; flex-direction: column; }
+.pulse-led {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #14C38E;
+  box-shadow: 0 0 8px #14C38E, 0 0 0 4px rgba(20,195,142,.2);
+  animation: led-blink 1.2s infinite;
+}
+@keyframes led-blink { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
+.pulse-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  color: rgba(255,255,255,.6);
+}
+.pulse-bpm-badge {
+  background: rgba(20,195,142,.15);
+  color: #14C38E;
+  font-size: 11px; font-weight: 700;
+  padding: 4px 10px; border-radius: 99px;
+  border: 1px solid rgba(20,195,142,.3);
+}
+.pulse-ekg { flex: 1; display: flex; align-items: center; min-height: 80px; margin: .5rem 0; }
+.pulse-ekg svg { width: 100%; height: 80px; display: block; }
+.ekg-line {
+  filter: drop-shadow(0 0 6px rgba(20,195,142,.6));
+  stroke-dasharray: 800;
+  animation: ekg-sweep 3s linear infinite;
+}
+@keyframes ekg-sweep {
+  from { stroke-dashoffset: 800; }
+  to { stroke-dashoffset: 0; }
+}
+.ekg-dot { animation: ekg-pulse 1.2s infinite; transform-origin: center; transform-box: fill-box; }
+@keyframes ekg-pulse {
+  0%,100% { r: 4; filter: drop-shadow(0 0 4px #14C38E); }
+  50% { r: 6; filter: drop-shadow(0 0 12px #14C38E); }
+}
+.pulse-num { font-size: 1.85rem; font-weight: 800; color: #fff; line-height: 1; letter-spacing: -.02em; }
+.pulse-sub { font-size: 11px; color: rgba(255,255,255,.55); }
+.pulse-trend {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 12px; font-weight: 700;
+  padding: 3px 8px; border-radius: 99px;
+}
+.pulse-trend.up { background: rgba(34,197,94,.18); color: #4ADE80; }
+
+/* ============== ROW A.2 — Revenue Mountain Climb ============== */
+.climb-card {
+  position: relative; overflow: hidden; min-height: 100%;
+  border-radius: var(--rt-radius-lg);
+  background: linear-gradient(180deg, #DBEAFE 0%, #FFFFFF 60%);
+  border: 1px solid #BFDBFE;
+}
+.climb-sky { position: absolute; top: 0; left: 0; right: 0; height: 80px; pointer-events: none; }
+.climb-cloud {
+  position: absolute; background: rgba(255,255,255,.85);
+  border-radius: 50%;
+  box-shadow:
+    20px 0 0 -2px rgba(255,255,255,.85),
+    -18px 4px 0 -4px rgba(255,255,255,.85);
+}
+.cloud-1 { top: 15px; left: 25%; width: 24px; height: 12px; animation: drift 14s linear infinite; }
+.cloud-2 { top: 30px; left: 60%; width: 18px; height: 10px; animation: drift 18s linear infinite; }
+.cloud-3 { top: 45px; left: 85%; width: 20px; height: 11px; animation: drift 22s linear infinite; }
+@keyframes drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-200px); }
+}
+
+.climb-body { padding: 1.25rem; position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
+.climb-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #1E40AF; color: #fff;
+  font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 99px;
+}
+.climb-percent {
+  font-size: 1.6rem; font-weight: 800;
+  background: linear-gradient(135deg, #14C38E, #0EA475);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+.climb-mountain { width: 100%; height: 140px; display: block; }
+.climber { animation: climber-bob 1.5s ease-in-out infinite; }
+@keyframes climber-bob {
+  0%,100% { transform: translate(312px, 24px); }
+  50% { transform: translate(312px, 22px); }
+}
+
+.climb-step {
+  width: 32px; height: 32px; border-radius: 50%; margin: 0 auto 4px;
+  background: var(--rt-body-bg); color: var(--rt-text-muted);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 12px;
+  border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+.climb-step-done { background: #14C38E; color: #fff; }
+.climb-step-active { background: #fff; color: #14C38E; border-color: #14C38E; box-shadow: 0 0 0 4px rgba(20,195,142,.15); }
+.climb-foot {
+  margin-top: auto; padding-top: 12px;
+  border-top: 1px dashed #BFDBFE;
+  font-size: 12px; color: #1E3A8A;
+  display: flex; align-items: center; gap: 6px;
+}
+
+/* ============== ROW A.3 — Power Hour Clock ============== */
+.ph-card {
+  position: relative; overflow: hidden; min-height: 100%;
+  border-radius: var(--rt-radius-lg);
+  background: linear-gradient(160deg, #1E1B2E 0%, #0F172A 100%);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(245,158,11,.15);
+}
+.ph-card-glow {
+  position: absolute; top: -40px; right: -40px;
+  width: 180px; height: 180px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,158,11,.35), transparent 70%);
+  pointer-events: none;
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+@keyframes glow-pulse {
+  0%,100% { transform: scale(1); opacity: .9; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+.ph-body { position: relative; z-index: 1; padding: 1.25rem; height: 100%; display: flex; flex-direction: column; }
+
+.ph-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: linear-gradient(135deg, #F59E0B, #EF4444);
+  color: #fff; font-size: 11px; font-weight: 700;
+  padding: 4px 10px; border-radius: 99px;
+  box-shadow: 0 4px 10px rgba(245,158,11,.4);
+}
+.ph-time-badge {
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  font-size: 11px; font-weight: 600;
+  padding: 4px 10px; border-radius: 6px;
+  border: 1px solid rgba(255,255,255,.2);
+}
+
+.ph-clock-wrap { position: relative; width: 180px; height: 180px; margin: .5rem auto 1rem; }
+.ph-clock { width: 100%; height: 100%; }
+.ph-clock-inner {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+}
+.ph-num {
+  font-size: 1.75rem; font-weight: 800; color: #fff; line-height: 1;
+  background: linear-gradient(135deg, #FBBF24, #EF4444);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.ph-clock-inner small { color: rgba(255,255,255,.6); font-size: 10px; text-transform: uppercase; letter-spacing: .08em; margin-top: 4px; }
+
+.ph-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px;
+  background: rgba(255,255,255,.06); border-radius: 12px; padding: 10px;
+  margin-top: auto;
+  border: 1px solid rgba(255,255,255,.1);
+}
+.ph-stat {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 4px;
+  border-right: 1px solid rgba(255,255,255,.08);
+}
+.ph-stat:last-child { border-right: 0; }
+.ph-stat i { font-size: 14px; }
+.ph-stat strong { color: #fff; font-size: 14px; line-height: 1.1; }
+.ph-stat small { font-size: 10px; color: rgba(255,255,255,.55); text-transform: uppercase; letter-spacing: .04em; }
+
+/* ============== ROW B — Conversion Highway ============== */
+.hwy-card {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F4F7FB 100%);
+  border: 1px solid var(--rt-border);
+  border-radius: var(--rt-radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hwy-card::before {
+  content: ''; position: absolute; top: 0; right: 0;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(20,195,142,.08), transparent 70%);
+  pointer-events: none;
+}
+.hwy-head {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+  margin-bottom: 1.5rem;
+  position: relative; z-index: 1;
+}
+.hwy-legend {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 12px; color: var(--rt-text-muted);
+  margin-left: 12px;
+}
+.hwy-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+.hwy-track {
+  display: flex; align-items: center;
+  position: relative; z-index: 1;
+  overflow-x: auto; padding-bottom: 8px;
+}
+
+.hwy-stop {
+  flex: 0 0 auto; text-align: center; min-width: 110px;
+  position: relative;
+}
+.hwy-icon {
+  width: 72px; height: 72px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 12px;
+  font-size: 26px; color: #fff;
+  box-shadow: 0 8px 18px rgba(0,0,0,.1);
+  position: relative;
+  transition: transform .25s;
+}
+.hwy-icon::after {
+  content: ''; position: absolute; inset: -6px;
+  border-radius: 50%; border: 2px dashed rgba(0,0,0,.08);
+}
+.hwy-icon:hover { transform: scale(1.05); }
+.hwy-icon-1 { background: linear-gradient(135deg, #14C38E, #0EA475); }
+.hwy-icon-2 { background: linear-gradient(135deg, #6366F1, #4F46E5); }
+.hwy-icon-3 { background: linear-gradient(135deg, #F59E0B, #D97706); }
+.hwy-icon-4 { background: linear-gradient(135deg, #EC4899, #DB2777); }
+.hwy-icon-final { background: linear-gradient(135deg, #FBBF24, #F59E0B);
+  box-shadow: 0 8px 24px rgba(251,191,36,.45); }
+
+.hwy-stop-num { font-size: 1.25rem; font-weight: 800; color: var(--rt-heading); line-height: 1; }
+.hwy-stop-label { font-size: 11px; color: var(--rt-text-muted); text-transform: uppercase; letter-spacing: .04em; margin-top: 4px; font-weight: 600; }
+
+.hwy-arrow {
+  flex: 1; min-width: 50px;
+  position: relative;
+  text-align: center;
+}
+.hwy-pct {
+  position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
+  background: var(--rt-primary-soft); color: var(--rt-primary);
+  font-size: 11px; font-weight: 700;
+  padding: 2px 8px; border-radius: 99px;
+  white-space: nowrap;
+  z-index: 2;
+}
+.hwy-road {
+  height: 28px; position: relative;
+  background:
+    repeating-linear-gradient(90deg, var(--rt-text-soft) 0 8px, transparent 8px 16px) center / 100% 2px no-repeat,
+    var(--rt-body-bg);
+  border-radius: 14px;
+  border: 1px solid var(--rt-border);
+  display: flex; align-items: center;
+  overflow: hidden;
+}
+.hwy-car {
+  position: absolute; font-size: 8px; line-height: 1;
+  color: var(--rt-primary);
+  animation: car-drive 4s linear infinite;
+}
+.car-1 { animation-delay: 0s; top: 50%; transform: translateY(-50%); }
+.car-2 { animation-delay: 1.3s; top: 50%; transform: translateY(-50%); color: var(--rt-warning); }
+.car-3 { animation-delay: 2.6s; top: 50%; transform: translateY(-50%); color: var(--rt-info); }
+@keyframes car-drive {
+  from { left: -10px; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  to { left: 110%; opacity: 0; }
+}
+
+.hwy-final .hwy-stop-num { color: #F59E0B; font-size: 1.4rem; }
+
+.hwy-foot {
+  margin-top: 1.5rem; padding-top: 1rem;
+  border-top: 1px dashed var(--rt-border);
+  display: flex; gap: 1.5rem; flex-wrap: wrap;
+  font-size: 13px; color: var(--rt-text-muted);
+}
+
+/* ============== ROW C — Ticket Cards ============== */
+.ticket-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--rt-card-bg);
+  border: 1px solid var(--rt-border);
+  box-shadow: 0 6px 16px rgba(15,23,42,.06);
+  transition: var(--rt-trans);
+}
+.ticket-card:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(15,23,42,.1); }
+
+.ticket-card::before, .ticket-card::after {
+  content: ''; position: absolute;
+  width: 18px; height: 18px;
+  background: var(--rt-body-bg);
+  border-radius: 50%;
+  top: 60%; transform: translateY(-50%);
+  z-index: 2;
+}
+.ticket-card::before { left: -9px; }
+.ticket-card::after { right: -9px; }
+
+.ticket-badge {
+  display: inline-block;
+  font-size: 10px; font-weight: 800; letter-spacing: .08em;
+  padding: 5px 12px; border-radius: 0 0 8px 0;
+  color: #fff;
+}
+.ticket-gold .ticket-badge { background: linear-gradient(135deg, #FBBF24, #D97706); }
+.ticket-fire .ticket-badge { background: linear-gradient(135deg, #EF4444, #DC2626); }
+.ticket-blue .ticket-badge { background: linear-gradient(135deg, #6366F1, #4F46E5); }
+.ticket-warn .ticket-badge { background: linear-gradient(135deg, #F59E0B, #B45309); }
+
+.ticket-body {
+  padding: 1rem 1.1rem;
+  display: flex; align-items: center; gap: 12px;
+}
+
+.ticket-img, .ticket-avatar img {
+  width: 56px; height: 56px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.ticket-avatar img { border-radius: 50%; border: 2px solid var(--rt-warning); }
+
+.ticket-day {
+  width: 56px; height: 56px;
+  border-radius: 12px;
+  background: linear-gradient(160deg, #6366F1, #4F46E5);
+  color: #fff;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.ticket-day small { font-size: 9px; opacity: .8; line-height: 1; text-transform: uppercase; }
+.ticket-day strong { font-size: 22px; line-height: 1; margin: 1px 0; }
+
+.ticket-icon-tile {
+  width: 56px; height: 56px; border-radius: 12px;
+  background: linear-gradient(160deg, #FFEDD5, #FED7AA);
+  color: #B45309;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.ticket-title { font-weight: 700; color: var(--rt-heading); font-size: 14px; line-height: 1.2; }
+.ticket-sub { color: var(--rt-text-muted); font-size: 11px; }
+.ticket-num { font-size: 1.25rem; font-weight: 800; color: var(--rt-primary); line-height: 1; }
+.ticket-num small { font-size: 11px; font-weight: 500; color: var(--rt-text-muted); text-transform: uppercase; letter-spacing: .03em; margin-left: 4px; }
+
+.ticket-stub {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 1.1rem;
+  border-top: 2px dashed var(--rt-border);
+  background: var(--rt-body-bg);
+  font-size: 12px;
+  color: var(--rt-text);
+}
+.ticket-trend {
+  background: rgba(34,197,94,.15); color: var(--rt-success);
+  padding: 2px 8px; border-radius: 99px;
+  font-weight: 700; font-size: 11px;
+  display: inline-flex; align-items: center; gap: 3px;
+}
+.ticket-fire .ticket-trend { background: rgba(239,68,68,.15); color: var(--rt-danger); }
+.ticket-blue .ticket-trend { background: rgba(99,102,241,.15); color: #4F46E5; }
+
+.ticket-cta {
+  color: var(--rt-warning); font-weight: 700; font-size: 11px;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 3px;
+  transition: gap .2s;
+}
+.ticket-cta:hover { color: #B45309; gap: 6px; }
+
+@media (max-width: 991.98px) {
+  .hwy-track { gap: 4px; }
+  .hwy-stop { min-width: 90px; }
+  .hwy-icon { width: 56px; height: 56px; font-size: 20px; }
+  .hwy-pct { font-size: 10px; padding: 1px 6px; }
+}
+@media (max-width: 575.98px) {
+  .hwy-track { padding-bottom: 16px; }
+}
+
+/* ============== Dark theme overrides ============== */
+
+/* Mountain Climb card — light blue/white pastel */
+[data-theme="dark"] .climb-card {
+  background: linear-gradient(180deg, rgba(56,189,248,.10) 0%, var(--rt-card-bg) 60%);
+  border-color: rgba(56,189,248,.25);
+}
+[data-theme="dark"] .climb-cloud { background: rgba(255,255,255,.18); box-shadow: 20px 0 0 -2px rgba(255,255,255,.18), -18px 4px 0 -4px rgba(255,255,255,.18); }
+[data-theme="dark"] .climb-step {
+  background: rgba(255,255,255,.06); color: var(--rt-text-muted);
+  border-color: var(--rt-card-bg); box-shadow: none;
+}
+[data-theme="dark"] .climb-step-active { background: var(--rt-card-bg); color: #34D399; border-color: #14C38E; }
+[data-theme="dark"] .climb-foot { border-top-color: rgba(56,189,248,.20); color: #93C5FD; }
+[data-theme="dark"] .climb-pill { background: #1D4ED8; }
+[data-theme="dark"] .climb-mountain g.climber circle[fill="#fff"] { fill: var(--rt-card-bg); }
+[data-theme="dark"] .climb-mountain g[transform^="translate(400"] line[stroke="#0F172A"] { stroke: var(--rt-text); }
+
+/* Conversion Highway — light gradient card */
+[data-theme="dark"] .hwy-card {
+  background: linear-gradient(135deg, var(--rt-card-bg) 0%, rgba(255,255,255,.02) 100%);
+  border-color: var(--rt-border);
+}
+[data-theme="dark"] .hwy-road {
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.18) 0 8px, transparent 8px 16px) center / 100% 2px no-repeat,
+    rgba(255,255,255,.04);
+  border-color: var(--rt-border);
+}
+[data-theme="dark"] .hwy-stop-num { color: var(--rt-heading); }
+[data-theme="dark"] .hwy-icon::after { border-color: rgba(255,255,255,.10); }
+
+/* Ticket cards — pastel orange icon tile inside the warning ticket */
+[data-theme="dark"] .ticket-icon-tile {
+  background: linear-gradient(160deg, rgba(245,158,11,.18), rgba(245,158,11,.08));
+  color: #FCD34D;
+}
+[data-theme="dark"] .ticket-stub { color: var(--rt-text); }
+[data-theme="dark"] .ticket-num   { color: #6EE7B7; }
+[data-theme="dark"] .ticket-cta:hover { color: #FCD34D; }
+[data-theme="dark"] .ticket-blue .ticket-trend { background: rgba(99,102,241,.20); color: #A5B4FC; }

@@ -1,0 +1,110 @@
+/* ==========================================================================
+   ElitePanel — Advanced Tree View overrides
+   ========================================================================== */
+
+.status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
+
+/* Refine the base treeview from pages.css */
+.treeview { font-size: 14px; }
+.treeview ul {
+  padding-left: 1.5rem;
+  position: relative;
+  margin-top: 2px;
+}
+.treeview ul::before {
+  content: '';
+  position: absolute;
+  left: 12px; top: 4px; bottom: 4px;
+  width: 1px;
+  background: var(--rt-border);
+}
+
+.treeview li {
+  position: relative;
+  padding: 2px 0;
+}
+
+/* Connector horizontal line */
+.treeview ul > li::before {
+  content: '';
+  position: absolute;
+  left: -12px; top: 18px;
+  width: 12px; height: 1px;
+  background: var(--rt-border);
+}
+
+.treeview .tv-toggle {
+  display: inline-flex; align-items: center; gap: .35rem;
+  padding: 4px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: var(--rt-trans);
+  position: relative;
+}
+.treeview .tv-toggle:hover { background: var(--rt-body-bg); }
+.treeview li:not(.collapsed) > .tv-toggle .tv-arrow { transform: rotate(90deg); color: var(--rt-primary); }
+
+.treeview .tv-meta {
+  display: inline-block;
+  margin-left: 12px;
+  font-size: 11px;
+  color: var(--rt-text-muted);
+}
+.treeview .tv-count {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--rt-primary);
+  background: var(--rt-primary-soft);
+  padding: 1px 8px;
+  border-radius: 99px;
+}
+
+/* ============== File System variant ============== */
+.tv-fs li > .tv-toggle:hover .tv-icon.text-warning { color: #D97706 !important; }
+
+/* ============== Org chart variant — bigger gaps + avatars ============== */
+.tv-org .tv-toggle { padding: 6px 10px; }
+.tv-org .avatar { width: 24px; height: 24px; }
+
+/* ============== Categories — count pill ============== */
+.tv-cat .tv-toggle:hover { background: var(--rt-primary-soft); color: var(--rt-primary); }
+
+/* ============== Multi-select with checkboxes ============== */
+.tv-check .tv-toggle { padding: 6px 8px; }
+.tv-check .tv-toggle .form-check-input {
+  margin: 0; flex-shrink: 0;
+}
+.tv-check .tv-toggle:has(.form-check-input:checked) {
+  background: var(--rt-primary-soft); color: var(--rt-primary);
+}
+.tv-check .tv-toggle:has(.form-check-input:checked) .tv-icon { color: var(--rt-primary); }
+
+/* ============== Permissions ============== */
+.tv-perm .tv-toggle { padding: 6px 8px; }
+
+/* ============== Site map ============== */
+.tv-site .tv-toggle .text-info { color: #0EA5E9 !important; }
+
+/* ============== Comment thread ============== */
+.tv-comment ul { padding-left: 2rem; }
+.tv-comment .tv-toggle {
+  align-items: flex-start;
+  padding: 4px 0;
+  background: transparent !important;
+}
+.tv-comment .tv-toggle:hover { background: transparent !important; }
+.tv-comment .tv-arrow { margin-top: 4px; }
+.tv-comment .avatar { margin-top: 2px; flex-shrink: 0; }
+.comment-bubble {
+  background: var(--rt-body-bg);
+  border-radius: 12px;
+  padding: 8px 12px;
+  flex: 1;
+  font-size: 13px;
+  border: 1px solid var(--rt-border);
+}
+.comment-bubble strong { font-size: 13px; color: var(--rt-heading); }
+.comment-bubble p { font-size: 13px; color: var(--rt-text); margin-top: 2px !important; }
